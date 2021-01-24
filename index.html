@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>First Project</title>
+    <link rel="stylesheet" type="text/css" href="project1css.css">
+    <script src="https://kit.fontawesome.com/9edbd6c80c.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <div id = "page-wrapper"> 
+        <div id = "navbar">
+            <ul>
+                <li>
+                    <button onclick="topclothes()" class = "navbutton">Top</button>
+                    <!--<a href = "#">Top</a>-->
+                </li>
+                <li>
+                    <button onclick="bottomclothes()" class = "navbutton">Bottom</button>
+                    <!--<a href = "#">Bottom</a>-->
+                </li>
+                <li>
+                    <button onclick="outerwearclothes()" class = "navbutton">Outerwear</button>
+                    <!--<a href = "#">Outerwear</a>-->
+                </li>
+                <li>
+                    <button onclick="accessoriesclothes()" class = "navbutton">Accessories</button>
+                    <!--<a href = "#">Accessories</a>-->
+                </li>
+            </ul>
+        </div>
+        <div id = "centerwrapper">
+            <div id = "topcenter">
+                <button id = "left">&#8592;</button>
+                <button id = "right">&#8594;</button>
+            </div>
+            <div id = "carousel">
+                <ul id = "carousel-track">
+                    <li class = "currentcarousel-slide">
+                        <img id ="Red_Shirt" class = "product" src = "top1.jpg">
+                    </li>
+                    <li class = "carousel-slide">
+                        <img id ="White_Shirt" class = "product"src = "top2.jpg">
+                    </li>
+                    <li class = "carousel-slide">
+                        <img id ="Yellow_Shirt" class = "product" src = "top3.jpg">
+                    </li>
+                </ul>     
+            </div>
+            <div id = "bottomcenter">
+                <div id = "checkout">
+                <button id="cart"><i class="fas fa-shopping-cart" style ="color:antiquewhite; font-size: 3vh; margin-top: 2%; margin-left: 5%;">
+                </i></button>
+                <input id = "quantity" type ="number" min = "1" value = "1">
+                </div>
+            </div>
+        </div>
+        <div id = "cartcheckout">
+            <div id = "topcheckout":>
+                <h2 style="text-align: center; color:antiquewhite; opacity: 1;" >checkout</h2>
+            </div>
+            <table id = "cartitems" style="width:100%; justify-content: space-around; background: white;">
+                <tr style = "background-color: palegoldenrod;">
+                    <th>Item</th>
+                    <th>Quantity</th>
+                    <th>Cost</th>
+                </tr>
+                <tr class="checkoutitem">
+                    <td class = "item" ><img src = accessories1.jpg height = "50" width = "50">Beach Bracelet</td>
+                    <td class = "quantity">0</td>
+                    <td class = "Cost">0<button onclick="removeClicked(this)" class = "removebutton" style = "font-weight: bold; float: right; color: black; border-style: solid; border-color: black;background-color: palegoldenrod;">
+                    remove</button> 
+                    </td>
+                </tr>
+            </table>
+            <table style="width:100%; justify-content: space-around; background: white;">
+                <tr id = "total" style = "background-color: palegoldenrod;">
+                    <th id = "totalvalue">0</th>
+                </tr>
+            </table>
+            <button onclick="purchaseClicked(this)" id = "bottomcheckout" style = "width: 100%;">purchase</button>
+        </div>
+    </div>
+    <script src="project1js.js"></script>
+</body>
+</html>
