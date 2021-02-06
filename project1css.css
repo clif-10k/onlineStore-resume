@@ -151,6 +151,7 @@ button:hover{
     margin: auto;
     margin-bottom: 10px;
     border:2px solid black;
+    display: none;
 }
 #topcheckout{
     margin-top: 0;

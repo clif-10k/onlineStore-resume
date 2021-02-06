@@ -57,7 +57,7 @@ function accessoriesclothes() {
 //carousel ul tack and the pics in them which is li aka slides
 const track = document.querySelector('#carousel-track');
 const slides = Array.from(track.children);
-console.log(slides);
+//console.log(slides);
 
 //carousel next/prev button and width of carousel pics
 const nextButton = document.querySelector('#right');
@@ -121,6 +121,7 @@ function addItemToCart(price,quantity,imageSrc,itemName){
     cartRow.innerHTML = cartRowContent;
     cartItems.append(cartRow);
     document.getElementById('totalvalue').innerText = "$" + newTotal;
+    checkoutDisplay()
 }
 //remove item from cart and update price
 function removeClicked(removeItemButton){
@@ -130,9 +131,10 @@ function removeClicked(removeItemButton){
     var newTotal = currentTotal - (itemPrice*itemQuantity);
     removeItemButton.parentElement.parentElement.remove();
     document.getElementById('totalvalue').innerText = "$" + newTotal;
+    checkoutDisplay();
 }
 //cart content confirmation, email prompt, and refresh cart
-function purchaseClicked(button){
+function purchaseClicked(){
     const itemListNames = document.getElementsByClassName('item');
     const itemListQuantity = document.getElementsByClassName('quantity');
     const finalNames = []
@@ -141,8 +143,8 @@ function purchaseClicked(button){
     var checkoutString = "Would you like to purchase "
     var quanString ="";
     var itemString="";
-    console.log(itemListNames);
-    console.log(itemListQuantity);
+    //console.log(itemListNames);
+    //console.log(itemListQuantity);
     for (item of itemListNames){
         finalNames[counter] = item.innerText;
         counter +=1;
@@ -164,22 +166,39 @@ function purchaseClicked(button){
             return;
         }
         checkoutString = checkoutString + quanString + " " + itemString + ",";
-        console.log(checkoutString);
+        //console.log(checkoutString);
         counter++;
     }
-    console.log(checkoutString);
+    //console.log(checkoutString);
 
     if (confirm(checkoutString)) {
         if (prompt("Please Enter your E-mail for tracking and receipt.","example@gmail.com")){
-            alert("Purchase Complete");
-            checkoutItems = getElementsByClassName('item');
-            for (item of checkoutItems){
-                console.log(item.parentElement);
+            alert("Thank you for your purchase (Purchase Complete)");
+            const checkoutItems = document.getElementById("cartitems");
+            for (item of checkoutItems.children){
+                //console.log(item);
+                if (item.className == 'checkoutitem'){
+                    checkoutItems.remove(item);
+                }
             }
+            var carttotal = document.getElementById("totalvalue");
+            carttotal.innerHTML = '$0';
         } else {
             return;
         }
     } else {
         return;
+    }
+}
+console.log(document.getElementById("cartitems").children.length);
+
+function checkoutDisplay(){
+    if(document.getElementById("cartitems").children.length > 1){
+        console.log("block");
+        document.getElementById("cartcheckout").style.display = "block";
+    }
+    else {
+        console.log("none");
+        document.getElementById("cartcheckout").style.display = "none";
     }
 }
