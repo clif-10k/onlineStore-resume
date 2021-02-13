@@ -174,12 +174,11 @@ function purchaseClicked(){
     if (confirm(checkoutString)) {
         if (prompt("Please Enter your E-mail for tracking and receipt.","example@gmail.com")){
             alert("Thank you for your purchase (Purchase Complete)");
-            const checkoutItems = document.getElementById("cartitems");
-            for (item of checkoutItems.children){
-                //console.log(item);
-                if (item.className == 'checkoutitem'){
-                    checkoutItems.remove(item);
-                }
+            const finalItems = document.getElementsByClassName('checkoutitem');
+            for (var i = finalItems.length - 1; i >= 0; i--)
+            {
+                // Remove first element (at [0]) repeatedly
+                finalItems[0].parentNode.removeChild(finalItems[0]);
             }
             var carttotal = document.getElementById("totalvalue");
             carttotal.innerHTML = '$0';
@@ -189,6 +188,7 @@ function purchaseClicked(){
     } else {
         return;
     }
+    checkoutDisplay();
 }
 console.log(document.getElementById("cartitems").children.length);
 
@@ -202,3 +202,4 @@ function checkoutDisplay(){
         document.getElementById("cartcheckout").style.display = "none";
     }
 }
+console.log(document.getElementsByTagName('button')[0].className);
