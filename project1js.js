@@ -45,7 +45,6 @@ function accessoriesclothes() {
     const liholder = document.querySelector('#carousel-track');
     const lilist = liholder.querySelectorAll('li');
     lilist[0].querySelector("img").src = "accessories1.jpg";
-    console.log(lilist[0]);
     lilist[1].querySelector("img").src = "accessories2.jpg";
     lilist[2].querySelector("img").src = "accessories3.jpg";
     lilist[0].firstChild.id = "Beach_Bracelet";
@@ -57,7 +56,6 @@ function accessoriesclothes() {
 //carousel ul tack and the pics in them which is li aka slides
 const track = document.querySelector('#carousel-track');
 const slides = Array.from(track.children);
-//console.log(slides);
 
 //carousel next/prev button and width of carousel pics
 const nextButton = document.querySelector('#right');
@@ -143,8 +141,6 @@ function purchaseClicked(){
     var checkoutString = "Would you like to purchase "
     var quanString ="";
     var itemString="";
-    //console.log(itemListNames);
-    //console.log(itemListQuantity);
     for (item of itemListNames){
         finalNames[counter] = item.innerText;
         counter +=1;
@@ -166,10 +162,8 @@ function purchaseClicked(){
             return;
         }
         checkoutString = checkoutString + quanString + " " + itemString + ",";
-        //console.log(checkoutString);
         counter++;
     }
-    //console.log(checkoutString);
 
     if (confirm(checkoutString)) {
         if (prompt("Please Enter your E-mail for tracking and receipt.","example@gmail.com")){
@@ -190,16 +184,12 @@ function purchaseClicked(){
     }
     checkoutDisplay();
 }
-console.log(document.getElementById("cartitems").children.length);
 
 function checkoutDisplay(){
     if(document.getElementById("cartitems").children.length > 1){
-        console.log("block");
         document.getElementById("cartcheckout").style.display = "block";
     }
     else {
-        console.log("none");
         document.getElementById("cartcheckout").style.display = "none";
     }
 }
-console.log(document.getElementsByTagName('button')[0].className);
